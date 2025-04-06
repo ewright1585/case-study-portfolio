@@ -1,0 +1,89 @@
+.wrapper {
+    padding: 2rem;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .headerImage {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 1rem 0;
+  }
+  
+  .preview {
+    text-align: center;
+  
+    .passwordForm {
+      margin-top: 2rem;
+  
+      input {
+        padding: 0.5rem;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-right: 1rem;
+      }
+  
+      button {
+        padding: 0.5rem 1rem;
+        background: #0070f3;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+  
+      .error {
+        color: red;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+  
+  .fullContent {
+    margin-top: 2rem;
+  
+    h2 {
+      margin-top: 1.5rem;
+    }
+  
+    ul {
+      padding-left: 1.25rem;
+      list-style: disc;
+    }
+  
+    .mockup {
+      max-width: 100%;
+      margin: 1rem 0;
+      border-radius: 12px;
+    }
+  
+    .testimonial {
+      border-left: 4px solid #0070f3;
+      padding: 1rem;
+      margin: 1rem 0;
+      background: #f9f9f9;
+      border-radius: 8px;
+  
+      img {
+        max-width: 60px;
+        border-radius: 50%;
+        margin-bottom: 0.5rem;
+      }
+  
+      blockquote {
+        margin: 0.5rem 0 0;
+        font-style: italic;
+      }
+    }
+  
+    video {
+      margin: 1rem 0;
+      width: 100%;
+      max-width: 700px;
+      border-radius: 12px;
+    }
+  }
+  
