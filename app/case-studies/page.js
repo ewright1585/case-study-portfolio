@@ -96,9 +96,12 @@ export default function CaseStudiesPage() {
       <div className={styles.grid}>
         {filtered.map(cs => (
           <div key={cs.id} className={styles.card}>
+            <img src={cs.image}/>
+            <div className={styles.body}>
             <h3>{cs.title}</h3>
             <p>{cs.description?.substring(0, 100)}...</p>
             <a href={`/case-studies/${cs.id}`}>Preview</a>
+            </div>
           </div>
         ))}
       </div>
