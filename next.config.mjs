@@ -5,6 +5,8 @@ const nextConfig = {
     experimental: {
       appDir: true,  // Ensure app directory support is enabled
     },
+    basePath: '/case-study-portfolio', // <-- replace with your repo name
+    assetPrefix: '/case-study-portfolio',
 };
 
 export default nextConfig;

@@ -1,31 +1,27 @@
 // app/case-studies/[id]/page.js
+
 import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
-import { db } from '../../lib/firebaseConfig'; // Adjust the import based on your project structure
+import { db } from '../../lib/firebaseConfig';
 import CaseStudyDetailClient from './CaseStudyDetailClient';
 
-// Static params for generating static pages
 export async function generateStaticParams() {
-  const caseStudiesRef = collection(db, 'Case-Studies');
-  const querySnapshot = await getDocs(caseStudiesRef);
-  const caseStudyIds = querySnapshot.docs.map((doc) => doc.id); // Get all case study IDs
+  const querySnapshot = await getDocs(collection(db, 'Case-Studies'));
 
-  return caseStudyIds.map((id) => ({
-    id: id,
+  return querySnapshot.docs.map(doc => ({
+    id: doc.id,
   }));
 }
 
 export default async function CaseStudyPage({ params }) {
-  const { id } = params;
+  const id = params.id;
 
-  // Fetch the case study data during SSR
   const caseStudyRef = doc(db, 'Case-Studies', id);
-  const docSnap = await getDoc(caseStudyRef);
+  const caseStudySnap = await getDoc(caseStudyRef);
 
-  if (!docSnap.exists()) {
-    return <div>Case study not found</div>;
+  let caseStudyData = null;
+  if (caseStudySnap.exists()) {
+    caseStudyData = { id: caseStudySnap.id, ...caseStudySnap.data() };
   }
-
-  const caseStudyData = docSnap.data();
 
   return (
     <div>
