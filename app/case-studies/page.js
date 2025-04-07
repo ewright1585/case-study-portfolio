@@ -17,7 +17,7 @@ export default function CaseStudiesPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const ref = collection(db, 'Case-Studies');
+      const ref = collection(db, "Case-Studies");
       const snapshot = await getDocs(ref);
       const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setCaseStudies(data);

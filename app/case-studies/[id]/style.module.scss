@@ -86,4 +86,52 @@
       border-radius: 12px;
     }
   }
+
+/* Add this to your styles (e.g., app/styles.css or app/styles.scss) */
+
+.case-study-detail {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .case-study-detail h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .case-study-detail p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .case-study-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .case-study-tags {
+    margin-top: 20px;
+  }
+  
+  .case-study-tags ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .case-study-tags li {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .case-study-content {
+    margin-top: 30px;
+  }
+  
   
