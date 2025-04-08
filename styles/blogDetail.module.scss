@@ -1,0 +1,33 @@
+.blogDetail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .date,
+    .author {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  
+    .content p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+  
+    .imageWrapper {
+      margin-bottom: 2rem;
+      img {
+        border-radius: 8px;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  

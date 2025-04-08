@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { doc, getDoc, collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../lib/firebaseConfig';
+import { useState, useEffect } from "react";
+import { doc, getDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../lib/firebaseConfig";
 
 const CaseStudyPage = ({ caseStudyId }) => {
-  const [storedPassword, setStoredPassword] = useState('');
+  const [storedPassword, setStoredPassword] = useState("");
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);
 
   useEffect(() => {
@@ -13,13 +13,13 @@ const CaseStudyPage = ({ caseStudyId }) => {
 
     const fetchPassword = async () => {
       try {
-        const caseStudyDocRef = doc(db, 'Case-Studies', caseStudyId);
+        const caseStudyDocRef = doc(db, "Case-Studies", caseStudyId);
         const caseStudyDoc = await getDoc(caseStudyDocRef);
 
         if (caseStudyDoc.exists()) {
           // Fetch the related password from AccessPasswords
-          const accessPasswordRef = collection(db, 'AccessPasswords');
-          const passwordQuery = query(accessPasswordRef, where('caseStudyId', '==', caseStudyId));
+          const accessPasswordRef = collection(db, "AccessPasswords");
+          const passwordQuery = query(accessPasswordRef, where("caseStudyId", "==", caseStudyId));
           const querySnapshot = await getDocs(passwordQuery);
 
           if (!querySnapshot.empty) {
@@ -28,7 +28,7 @@ const CaseStudyPage = ({ caseStudyId }) => {
           }
         }
       } catch (error) {
-        console.error('Error fetching password:', error);
+        console.error("Error fetching password:", error);
       }
     };
 
@@ -42,7 +42,7 @@ const CaseStudyPage = ({ caseStudyId }) => {
     if (enteredPassword === storedPassword) {
       setIsPasswordCorrect(true);
     } else {
-      alert('Incorrect password');
+      alert("Incorrect password");
     }
   };
 

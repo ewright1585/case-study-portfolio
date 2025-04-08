@@ -9,7 +9,7 @@ export default function PasswordProtected({ onUnlock }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === 'YOUR_PASSWORD') { // Replace with your desired password or logic
+    if (password === "macandcheese123") { // Replace with your desired password or logic
       onUnlock();
     } else {
       setError(true);
@@ -27,7 +27,7 @@ export default function PasswordProtected({ onUnlock }) {
           required
         />
         <button type="submit">Submit</button>
-        {error && <p style={{ color: 'red' }}>Incorrect password</p>}
+        {error && <p style={{ color: "red" }}>Incorrect password</p>}
       </form>
     </div>
   );

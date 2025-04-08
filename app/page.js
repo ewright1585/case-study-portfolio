@@ -1,9 +1,10 @@
 // app/page.js
-'use client';
-import React, { useEffect, useState } from 'react';
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
-import { db } from '/app/lib/firebaseConfig.js';
-import styles from '@/styles/home.module.scss';
+"use client";
+import React, { useEffect, useState } from "react";
+import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
+import { db } from "/app/lib/firebaseConfig.js";
+import styles from "@/styles/home.module.scss";
+import Image from "next/image";
 
 export default function Home() {
   const [caseStudies, setCaseStudies] = useState([]);
@@ -11,11 +12,11 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const caseStudiesRef = collection(db, 'Case-Studies');
-      const blogRef = collection(db, 'Blog');
+      const caseStudiesRef = collection(db, "Case-Studies");
+      const blogRef = collection(db, "Blog");
 
-      const caseStudiesSnap = await getDocs(query(caseStudiesRef, orderBy('date', 'desc'), limit(2)));
-      const blogSnap = await getDocs(query(blogRef, orderBy('date', 'desc'), limit(3)));
+      const caseStudiesSnap = await getDocs(query(caseStudiesRef, orderBy("date", "desc"), limit(2)));
+      const blogSnap = await getDocs(query(blogRef, orderBy("date", "desc"), limit(3)));
 
       setCaseStudies(caseStudiesSnap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
       setBlogPosts(blogSnap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <main className={styles.home}>
       <header>
-        <h1>👋 Hi, I'm a Front-End Developer</h1>
+        <h1>👋 Hi, I am a Front-End Developer</h1>
         <p>I create modern, responsive web apps with clean, accessible UI.</p>
       </header>
 
@@ -36,7 +37,7 @@ export default function Home() {
         <div className={styles.grid}>
           {caseStudies.map(cs => (
             <div key={cs.id} className={styles.card} style={{"color": "#2a2a2a"}}>
-              <img src={cs.image} style={{"width": "100%"}}/>
+              <Image src={cs.image} alt="Case study image" width={400} height={300}/>
               <h3>{cs.title}</h3>
               <p>{cs.description?.substring(0, 100)}...</p>
               <a href={`/case-studies/${cs.id}`}>Read More</a>

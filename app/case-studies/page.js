@@ -1,16 +1,17 @@
 // app/case-studies/page.js
-'use client';
-import React, { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../lib/firebaseConfig';
-import styles from '@/styles/caseStudies.module.scss';
+"use client";
+import React, { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../lib/firebaseConfig";
+import styles from "@/styles/caseStudies.module.scss";
+import Image from "next/image";
 
 export default function CaseStudiesPage() {
   const [caseStudies, setCaseStudies] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
-  const [selectedIndustry, setSelectedIndustry] = useState('');
+  const [selectedIndustry, setSelectedIndustry] = useState("");
 
   const allTags = [...new Set(caseStudies.flatMap(cs => cs.tags || []))];
   const allIndustries = [...new Set(caseStudies.map(cs => cs.industry).filter(Boolean))];
@@ -74,7 +75,7 @@ export default function CaseStudiesPage() {
           {allTags.map(tag => (
             <button
               key={tag}
-              className={selectedTags.includes(tag) ? styles.activeTag : ''}
+              className={selectedTags.includes(tag) ? styles.activeTag : ""}
               onClick={() => toggleTag(tag)}
             >
               {tag}
@@ -96,7 +97,9 @@ export default function CaseStudiesPage() {
       <div className={styles.grid}>
         {filtered.map(cs => (
           <div key={cs.id} className={styles.card}>
-            <img src={cs.image}/>
+         <Image src={cs.image} alt="case study image" width={500} height={300 } />
+         
+
             <div className={styles.body}>
             <h3>{cs.title}</h3>
             <p>{cs.description?.substring(0, 100)}...</p>
